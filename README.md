@@ -1,4 +1,5 @@
 <p align="center">
+  <img src="https://lhmd.top/zpressor/assets/favicon.svg" alt="ZPressor Logo" style="width: 50px; height: 50px; margin-right: 20px;">
   <h1 align="center">ZPressor: Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS</h1>
   <p align="center">
     <a href="https://lhmd.top">Weijie Wang</a>
