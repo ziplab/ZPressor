@@ -44,7 +44,7 @@ If you find our work useful for your research, please consider citing us:
 }
 ```
 ## Contact
-If you have any questions, please create an issue on this repository or contact at wangweijie@zju.edu.cn and donny.chen@bytedance.com.
+If you have any questions, please create an issue on this repository or contact at wangweijie@zju.edu.cn and yuedong.chen@monash.edu
 
 ## Acknowledgements
 
