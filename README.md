@@ -14,7 +14,7 @@
     ·
     <a href="https://bohanzhuang.github.io">Bohan Zhuang</a>
   </p>
-  <h3 align="center"><a href="https://lhmd.top/zpressor">Paper</a> | <a href="https://lhmd.top/zpressor">Project Page</a> | <a href="https://github.com/ziplab/ZPressor">Code</a> | <a href="https://huggingface.co/lhmd/ZPressor">Models</a> </h3>
+  <h3 align="center"><a href="https://arxiv.org/abs/2505.23734">Paper</a> | <a href="https://lhmd.top/zpressor">Project Page</a> | <a href="https://github.com/ziplab/ZPressor">Code</a> | <a href="https://huggingface.co/lhmd/ZPressor">Models</a> </h3>
   <div align="center"></div>
 </p>
 <p align="center">
