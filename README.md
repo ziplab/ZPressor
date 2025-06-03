@@ -36,10 +36,10 @@
 If you find our work useful for your research, please consider citing us:
 
 ```bibtex
-@inproceedings{wang2025zpressor,
+@article{wang2025zpressor,
   title={ZPressor: Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS},
   author={Wang, Weijie and Chen, Donny Y. and Zhang, Zeyu and Shi, Duochao and Liu, Akide and Zhuang, Bohan},
-  booktitle={Arxiv},
+  journal={arXiv preprint arXiv:2505.23734},
   year={2025}
 }
 ```
