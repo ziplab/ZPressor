@@ -17,16 +17,21 @@
   <h3 align="center"><a href="https://arxiv.org/abs/2505.23734">Paper</a> | <a href="https://lhmd.top/zpressor">Project Page</a> | <a href="https://github.com/ziplab/ZPressor">Code</a> | <a href="https://huggingface.co/lhmd/ZPressor">Models</a> </h3>
   <div align="center"></div>
 </p>
+
+
 <p align="center">
   <a href="">
     <img src="https://lhmd.top/zpressor/assets/teaser.jpg" alt="Logo" width="100%">
   </a>
 </p>
 
-
 <p align="center">
 <strong>ZPressor is a plug-and-play module that compresses multi-view inputs for scalable feed-forward 3DGS.</strong>
 </p>
+
+
+## News
+- **09/06/25 Update:** Check out our <a href="https://github.com/aim-uofa/PM-Loss">PM-Loss</a>, a novel regularization loss for improving feed-forward 3DGS quality based on a learned point map.
 
 ## TODOs
 - [ ] Release Code.
