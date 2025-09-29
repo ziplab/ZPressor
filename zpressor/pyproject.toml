@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zpressor"
+version = "0.1.0"
+description = "Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Weijie Wang", email = "wangweijie@zju.edu.cn"},
+    {name = "Donny Y. Chen", email = "yuedong.chen@monash.edu"},
+]
+maintainers = [
+    {name = "Weijie Wang", email = "wangweijie@zju.edu.cn"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=1.13.0",
+    "einops>=0.6.0",
+    "scikit-learn>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "flake8>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://lhmd.top/zpressor"
+Repository = "https://github.com/ziplab/ZPressor"
+Documentation = "https://lhmd.top/zpressor"
+"Bug Tracker" = "https://github.com/ziplab/ZPressor/issues"
+"Paper" = "https://arxiv.org/abs/2505.23734"
+
+[tool.setuptools]
+packages = ["zpressor"]
+
+[tool.setuptools.package-dir]
+zpressor = "."
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 88

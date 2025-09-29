@@ -1,0 +1,5 @@
+# @package _global_
+
+dataset:
+  view_sampler:
+    index_path: assets/dl3dv_360_v5.json

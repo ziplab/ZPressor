@@ -1,0 +1,52 @@
+# @package _global_
+
+defaults:
+  - override /dataset: dl3dv
+  - override /model/encoder: depthsplat
+  - override /loss: [mse, lpips, ib]
+  - override /dataset/view_sampler: boundedv2_360
+
+wandb:
+  name: dl3dv
+  tags: [dl3dv, 270x480]
+
+data_loader:
+  train:
+    batch_size: 1
+
+trainer:
+  max_steps: 300_001
+  num_nodes: 1
+
+model:
+  encoder:
+    num_depth_candidates: 128
+    costvolume_unet_feat_dim: 128
+    costvolume_unet_channel_mult: [1,1,1]
+    costvolume_unet_attn_res: [4]
+    gaussians_per_pixel: 1
+    depth_unet_feat_dim: 32
+    depth_unet_attn_res: [16]
+    depth_unet_channel_mult: [1,1,1,1,1]
+    shim_patch_size: 16
+
+# lpips loss
+loss:
+  lpips:
+    apply_after_step: 0
+    weight: 0.05
+
+dataset: 
+  near: 1.
+  far: 200.
+  baseline_scale_bounds: false
+  make_baseline_1: false
+  min_views: 0
+  max_views: 0
+  view_group: []
+  highres: false
+
+test:
+  eval_time_skip_steps: 0
+  compute_scores: false
+  dec_chunk_size: 30
