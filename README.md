@@ -33,7 +33,7 @@
 
 
 ## News
-- **30/09/25 Update:** Check out our <a href="https://github.com/ziplab/VolSplat">VolSplat</a>, a fancy framework for improving multi-view consistency and geometric accuracy for feed-forward 3DGS with voxel-aligned prediction.
+- **29/09/25 Update:** Check out our <a href="https://github.com/ziplab/VolSplat">VolSplat</a>, a fancy framework for improving multi-view consistency and geometric accuracy for feed-forward 3DGS with voxel-aligned prediction.
 - **09/06/25 Update:** Check out our <a href="https://github.com/aim-uofa/PM-Loss">PM-Loss</a>, a novel regularization loss for improving feed-forward 3DGS quality based on a learned point map.
 
 ## Installation
