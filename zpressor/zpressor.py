@@ -3,7 +3,6 @@ from torch import nn
 from einops import rearrange
 from .attention import CrossAttention, Attention
 
-from sklearn.mixture import GaussianMixture
 from sklearn.cluster import KMeans
 
 class ZPressor(nn.Module):
@@ -156,34 +155,33 @@ class ZPressor(nn.Module):
                     centroids[b, j] = 0
         
         return centroids, clusters
-    
-    def clust_token(self, x):
-        # x: (b, v, f)
+
+    def clust_token_kmeans(self, x):
         b, v, f = x.shape
         output = []
         centers = []
-        # for every batch, we cluster the cls token into cluster_num clusters
-        # Use sklearn's GMM to replace original implementation
+        
         for i in range(b):
-            # Cluster using sklearn's GMM
-            self.gmm.fit(x[i].detach().cpu().numpy())  # Fit GMM
-            y = self.gmm.predict(x[i].detach().cpu().numpy())  # Predict class labels for each sample
-            output.append(torch.tensor(y).cuda())  # Convert labels back to torch tensor and move to cuda
-            # print("y: ", y)
+            kmeans = KMeans(n_clusters=self.cluster_num, random_state=42, n_init=10)
+            y = kmeans.fit_predict(x[i].detach().cpu().numpy())
+            output.append(torch.tensor(y).cuda())
             y_tensor = torch.tensor(y).cuda()
-
-            # Get cluster centers
+            
             center = []
             for j in range(self.cluster_num):
                 cluster_indices = torch.where(y_tensor == j)[0]
-                cluster_x = x[i][cluster_indices]
-                center_gmm = torch.tensor(self.gmm.means_[j]).cuda()  # Use means_ as center
-                distance = torch.norm(cluster_x - center_gmm, dim=1)
-                # print("distance: ", distance)
-                closest = cluster_indices[torch.argmin(distance)]
-                center.append(closest)
+                if len(cluster_indices) > 0:
+                    cluster_x = x[i][cluster_indices]
+                    center_kmeans = torch.tensor(kmeans.cluster_centers_[j]).cuda()
+                    distance = torch.norm(cluster_x - center_kmeans, dim=1)
+                    closest = cluster_indices[torch.argmin(distance)]
+                    center.append(closest)
+                else:
+                    center.append(torch.tensor(0).cuda())
+            
             center = torch.stack(center)
             centers.append(center)
+            
         centers = torch.stack(centers)
         output = torch.stack(output, dim=0)
         return output, centers
@@ -238,8 +236,7 @@ class ZPressor(nn.Module):
             centroids = self.farthest_point_sample(candidate_view_positions, self.cluster_num)
             clusters = self.assign_points_to_clusters(candidate_view_positions, centroids)
         else:
-            self.gmm = GaussianMixture(n_components=self.cluster_num, covariance_type='full')
-            clusters, centroids = self.clust_token(cls_token)
+            clusters, centroids = self.clust_token_kmeans(cls_token)
 
         results = []
         for i in range(self.feature_layer_num):
