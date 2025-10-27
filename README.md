@@ -79,6 +79,8 @@ Then, we enter the `depthsplat `folder to process the dataset. We made modificat
 ```bash
 cd depthsplat
 python src/scripts/convert_dl3dv_test.py --input_dir [ori_benchmark_path] --output_dir [benchmark_path]
+python generate_dl3dv_index.py --dataset_path [benchmark_path] --bench --stage test
+# You may modify the path of test stage index.json in convert_dl3dv_train.py
 python src/scripts/convert_dl3dv_train.py \
     --input_base_dir [ori_dataset_path] \ # such as datasets/DL3DV-10K-480
     --output_base_dir [dataset_path] \ # such as datasets/DL3DV-10K-480P
