@@ -10,6 +10,8 @@ parser.add_argument('--dataset_path', type=str, help='Base dataset directory pat
 parser.add_argument('--subset', choices=['1K', '2K', '3K', '4K', '5K', '6K', '7K', '8K', '9K', '10K', '11K'], help='Specific subset to process (if not specified, processes all subsets)', default=None)
 parser.add_argument('--start_k', type=int, default=1, help='Starting K value (default: 1)')
 parser.add_argument('--end_k', type=int, default=11, help='Ending K value (default: 11)')
+parser.add_argument('--bench', action='store_true', help='Process bench dataset (no subsets, directly processes test directory)')
+parser.add_argument('--stage', choices=['train', 'test'], default='train', help='Stage to process (default: train)')
 
 args = parser.parse_args()
 
@@ -26,7 +28,7 @@ def process_single_subset(dataset_base_path: Path, subset: str):
         return False
 
     # "train" or "test"
-    for stage in ["train"]:
+    for stage in [args.stage]:
         stage_path = DATASET_PATH / stage
 
         if not stage_path.exists():
@@ -55,6 +57,43 @@ def process_single_subset(dataset_base_path: Path, subset: str):
 
     return True
 
+
+def process_bench_dataset(dataset_path: Path):
+    """Process bench dataset (no subsets, directly processes stage directory)"""
+    print(f"\n=== Processing bench dataset ===")
+    print(f"Dataset path: {dataset_path}")
+
+    if not dataset_path.exists():
+        print(f"Error: Dataset path {dataset_path} does not exist!")
+        return False
+
+    stage_path = dataset_path / args.stage
+
+    if not stage_path.exists():
+        print(f"Error: Stage path {stage_path} does not exist!")
+        return False
+
+    index = {}
+    torch_files = [f for f in stage_path.iterdir() if f.suffix == ".torch"]
+
+    if not torch_files:
+        print(f"Warning: No .torch files found in {stage_path}")
+        return False
+
+    for chunk_path in tqdm(
+        sorted(torch_files), desc=f"Indexing {args.stage}"
+    ):
+        chunk = torch.load(chunk_path)
+        for example in chunk:
+            index[example["key"]] = str(chunk_path.relative_to(stage_path))
+
+    output_file = stage_path / "index.json"
+    with output_file.open("w") as f:
+        json.dump(index, f)
+
+    print(f"Created index for {args.stage}: {len(index)} entries -> {output_file}")
+    return True
+
 if __name__ == "__main__":
     dataset_base_path = Path(args.dataset_path)
 
@@ -62,7 +101,15 @@ if __name__ == "__main__":
         print(f"Error: Base dataset path {dataset_base_path} does not exist!")
         exit(1)
 
-    if args.subset:
+    if args.bench:
+        # Process bench dataset (no subsets)
+        print(f"Processing bench dataset at {dataset_base_path}")
+        success = process_bench_dataset(dataset_base_path)
+        if success:
+            print(f"\nCompleted processing bench dataset")
+        else:
+            print(f"\nFailed to process bench dataset")
+    elif args.subset:
         # Process single specified subset
         print(f"Processing single subset: {args.subset}")
         success = process_single_subset(dataset_base_path, args.subset)
