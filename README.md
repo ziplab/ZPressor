@@ -141,7 +141,7 @@ If you find our work useful for your research, please consider citing us:
 ```bibtex
 @article{wang2025zpressor,
   title={ZPressor: Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS},
-  author={Wang, Weijie and Chen, Donny Y. and Zhang, Zeyu and Shi, Duochao and Liu, Akide and Zhuang, Bohan},
+  author={Wang, Weijie and Chen, Donny Y and Zhang, Zeyu and Shi, Duochao and Liu, Akide and Zhuang, Bohan},
   journal={arXiv preprint arXiv:2505.23734},
   year={2025}
 }
@@ -152,3 +152,5 @@ If you have any questions, please create an issue on this repository or contact 
 ## Acknowledgements
 
 This project is developed with several fantastic repos: [pixelSplat](https://github.com/dcharatan/pixelsplat), [MVSplat](https://github.com/donydchen/mvsplat) and [DepthSplat](https://github.com/cvg/depthsplat). We thank the original authors for their excellent work.
+
+D. Y. Chen's contributions were made while he was affiliated with Monash University.
