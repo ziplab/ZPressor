@@ -348,16 +348,6 @@ class ModelWrapper(LightningModule):
 
         self.log("loss/total", total_loss)
 
-        unused_params = []
-        for name, param in self.encoder.named_parameters():
-            if param.requires_grad and param.grad is None:
-                unused_params.append(name)
-        if unused_params:
-            print(f"Found {len(unused_params)} unused parameters:")
-            for name in unused_params:
-                print(f"  - {name}")
-            print("-------------------")
-
         if (
             self.global_rank == 0
             and self.global_step % self.train_cfg.print_log_every_n_steps == 0
