@@ -33,7 +33,7 @@
 
 
 ## News
-- **11/03/26 Update:** Since the above links are frequently broken, we provide preprocessed data on HuggingFace ([RE10K](https://huggingface.co/datasets/lhmd/re10k_torch) and [ACID](https://huggingface.co/datasets/lhmd/acid_torch)).
+- **11/03/26 Update:** Since the dataset links of RE10K and ACID are frequently broken, we provide preprocessed data on HuggingFace ([RE10K](https://huggingface.co/datasets/lhmd/re10k_torch) and [ACID](https://huggingface.co/datasets/lhmd/acid_torch)).
 - **29/09/25 Update:** Check out our <a href="https://github.com/ziplab/VolSplat">VolSplat</a>, a fancy framework for improving multi-view consistency and geometric accuracy for feed-forward 3DGS with voxel-aligned prediction.
 - **09/06/25 Update:** Check out our <a href="https://github.com/aim-uofa/PM-Loss">PM-Loss</a>, a novel regularization loss for improving feed-forward 3DGS quality based on a learned point map.
 
