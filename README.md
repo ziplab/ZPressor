@@ -33,6 +33,7 @@
 
 
 ## News
+- **11/03/26 Update:** Since the above links are frequently broken, we provide preprocessed data on HuggingFace ([RE10K](https://huggingface.co/datasets/lhmd/re10k_torch) and [ACID](https://huggingface.co/datasets/lhmd/acid_torch)).
 - **29/09/25 Update:** Check out our <a href="https://github.com/ziplab/VolSplat">VolSplat</a>, a fancy framework for improving multi-view consistency and geometric accuracy for feed-forward 3DGS with voxel-aligned prediction.
 - **09/06/25 Update:** Check out our <a href="https://github.com/aim-uofa/PM-Loss">PM-Loss</a>, a novel regularization loss for improving feed-forward 3DGS quality based on a learned point map.
 
@@ -95,7 +96,9 @@ python src/scripts/generate_dl3dv_index.py \
 
 ### RealEstate10K / ACID
 
-Please refer to [here](https://github.com/dcharatan/pixelsplat?tab=readme-ov-file#acquiring-datasets) for acquiring preprocessed versions of the datasets following [pixelSplat](https://github.com/dcharatan/pixelsplat?tab=readme-ov-file#acquiring-datasets). If the link is broken or inaccessible, feel free to contact wangweijie@zju.edu.cn. 
+Please refer to [here](https://github.com/dcharatan/pixelsplat?tab=readme-ov-file#acquiring-datasets) for acquiring preprocessed versions of the datasets following [pixelSplat](https://github.com/dcharatan/pixelsplat?tab=readme-ov-file#acquiring-datasets). 
+
+We also provide preprocessed data on HuggingFace ([RE10K](https://huggingface.co/datasets/lhmd/re10k_torch) and [ACID](https://huggingface.co/datasets/lhmd/acid_torch)).
 
 ### Some Notes
 
