@@ -142,11 +142,14 @@ Each codebase operates differently; detailed instructions are provided in the RE
 If you find our work useful for your research, please consider citing us:
 
 ```bibtex
-@article{wang2025zpressor,
-  title={ZPressor: Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS},
-  author={Wang, Weijie and Chen, Donny Y and Zhang, Zeyu and Shi, Duochao and Liu, Akide and Zhuang, Bohan},
-  journal={arXiv preprint arXiv:2505.23734},
-  year={2025}
+@inproceedings{wang2025zpressor,
+  title     = {ZPressor: Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS},
+  author    = {Wang, Weijie and Chen, Donny Y. and Zhang, Zeyu and Shi, Duochao and Liu, Akide and Zhuang, Bohan},
+  booktitle = {Advances in Neural Information Processing Systems 38},
+  pages     = {125793--125822},
+  year      = {2025},
+  publisher = {Neural Information Processing Systems Foundation, Inc.},
+  doi       = {10.52202/085713-3782}
 }
 ```
 ## Contact
